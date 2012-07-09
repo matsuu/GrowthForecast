@@ -5,7 +5,6 @@ use warnings;
 use FindBin;
 use lib "$FindBin::Bin/extlib/lib/perl5";
 use lib "$FindBin::Bin/lib";
-use File::Basename;
 use Getopt::Long;
 use Plack::Loader;
 use Plack::Builder;
@@ -64,7 +63,7 @@ if ( $mysql ) {
     die "Cannot load MySQL: $@" if $@;
 }
 
-my $root_dir = File::Basename::dirname(__FILE__);
+my $root_dir = $FindBin::Bin;
 if ( ! -f "$root_dir/lib/GrowthForecast.pm" ) {
     $root_dir = dist_dir('GrowthForecast');
 }
