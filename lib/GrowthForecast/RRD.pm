@@ -74,7 +74,6 @@ sub update {
     eval {
         RRDs::update(
             $file,
-            '-t', 'num:sub',
             '--', join(':','N',$data->{number},$data->{subtract}),
         );
         my $ERR=RRDs::error;
@@ -91,7 +90,6 @@ sub update_short {
     eval {
         RRDs::update(
             $file,
-            '-t', 'num:sub',
             '--', join(':','N',$data->{number},$data->{subtract_short}),
         );
         my $ERR=RRDs::error;
